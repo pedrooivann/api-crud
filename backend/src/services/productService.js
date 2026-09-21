@@ -7,7 +7,7 @@ export function createProduct(name, price) {
     idCounter++; //Counter sempre +1
     const product = new Product(idCounter, name, price); //Cria o objeto com Id a partir do counter
     products.push(product); // Insere ele no Array
-    return product; // Retorna o objeto criado
+    return product; // Retorna o objeto CRIADO para o frontend
 };
 
 export function deleteProduct(id){
@@ -20,19 +20,19 @@ export function deleteProduct(id){
     const product = products[index]; //Pego o produto encontrado para usar no get
     products.splice(index, 1); //(index,1) => (index apagado, quantos a partir dele)
 
-    array.forEach(element => products () = {
-        
-    });
-
     console.log(`The item ${product.id}: ${product.name} successfully removed`);
-    return product;
+    return product; // Retorna o produto DELETADO para o frontend
 };
 
-export function getProduct (){
-    return products;
+export function getProducts (){
+    return products; // Retorna o produto para o frontend
 }
 
-export function updateProduct (id){
+export function getProduct (id){
+    return products.id; // Retorna o produto para o frontend
+}
+
+export function updateProduct (id, name, price){
     const index = products.findIndex(item =>item.id === id);
 
     if (index === -1){ // Verifica se ele existe
@@ -40,10 +40,8 @@ export function updateProduct (id){
     };
 
     const product = products[index];
+    product.name = name;
+    product.price = price;
 
-    const newName = prompt("New name: ");
-    const newPrice = Number(prompt("New price: "));
-
-    product.name = newName;
-    product.price = newPrice;
+    return product; // Retorna o produto ATUALIZADO para o frontend
 };
