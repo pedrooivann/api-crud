@@ -29,7 +29,7 @@ export function getProducts (){
 }
 
 export function getProduct (id){
-    return products.id; // Retorna o produto para o frontend
+    return products.find(item => item.id ==id); // Retorna o produto para o frontend
 }
 
 export function updateProduct (id, name, price){
